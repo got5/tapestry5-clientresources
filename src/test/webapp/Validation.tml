@@ -1,0 +1,14 @@
+<html t:type="layout" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+    <ul>
+        <li>
+            <t:form>
+                <p>
+                    <t:textfield t:value="foo" t:validate="required, minLength=3" t:id="field" />
+                </p>
+                <p>
+                    <t:textfield t:value="dummy" t:id="field2" t:mixins="autocomplete" />
+                </p><t:submit/>
+            </t:form>
+        </li>
+    </ul>
+</html>
