@@ -22,7 +22,6 @@ import org.apache.tapestry5.FieldFocusPriority;
 import org.apache.tapestry5.RenderSupport;
 import org.apache.tapestry5.json.JSONArray;
 import org.apache.tapestry5.json.JSONObject;
-import org.apache.tapestry5.services.AssetSource;
 
 public class RenderSupportInterceptor implements RenderSupport
 {
