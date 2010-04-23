@@ -69,6 +69,7 @@ public class ClientResourcesModule
 
         configuration.add(ClientResourcesConstants.CSS_STACK_DEFAULT, new AssetPathStack("${tapestry.default-stylesheet}",
                 "${tapestry.blackbird}/blackbird.css"));
+        configuration.add(ClientResourcesConstants.CSS_STACK_DEFAULT_WITHOUT_BLACKBIRD, new AssetPathStack("${tapestry.default-stylesheet}"));
         configuration.add(ClientResourcesConstants.CSS_STACK_NONE, new AssetPathStack());
         configuration.add(ClientResourcesConstants.JAVASCRIPT_STACK_DEFAULT, new AssetPathStack("${tapestry.scriptaculous}/prototype.js",
                 "${tapestry.scriptaculous}/scriptaculous.js", "${tapestry.scriptaculous}/effects.js", "org/apache/tapestry5/tapestry.js",

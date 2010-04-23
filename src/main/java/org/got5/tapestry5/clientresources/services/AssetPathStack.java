@@ -5,7 +5,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+// http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,7 +17,7 @@
 package org.got5.tapestry5.clientresources.services;
 
 /**
- * Stores a stack of assets. It makes {@link ContribuableClientInfrastructure} configuration easier 
+ * Stores a stack of assets. It makes {@link ContribuableClientInfrastructure} configuration easier
  */
 public class AssetPathStack
 {
@@ -29,17 +29,17 @@ public class AssetPathStack
 
     public AssetPathStack(String... stack)
     {
-	this.stack = stack;
+        this.stack = stack;
     }
 
     public String[] getStack()
     {
-	return stack;
+        return stack;
     }
 
     public void setStack(String[] stack)
     {
-	System.arraycopy(stack, 0, this.stack, 0, stack.length);
+        System.arraycopy(stack, 0, this.stack, 0, stack.length);
     }
 
 }

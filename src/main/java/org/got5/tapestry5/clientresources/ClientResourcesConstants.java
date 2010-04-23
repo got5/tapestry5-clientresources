@@ -5,7 +5,7 @@
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
-// 	http://www.apache.org/licenses/LICENSE-2.0
+// http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
 // distributed under the License is distributed on an "AS IS" BASIS,
@@ -45,7 +45,9 @@ public interface ClientResourcesConstants
 
     public static final String CSS_STACK_DEFAULT = "css-default";
 
+    public static final String CSS_STACK_DEFAULT_WITHOUT_BLACKBIRD = "css-default-without-blackbird";
+
     public static final String CSS_STACK_NONE = "css-none";
-    
+
     public static final String DISABLED_FORM_AUTOFOCUS = "tapestry.disabled-autofocus";
 }
