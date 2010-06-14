@@ -23,11 +23,13 @@ import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
 import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.ioc.annotations.Symbol;
-import org.apache.tapestry5.services.AssetSource;
+import org.apache.tapestry5.json.JSONObject;
 import org.apache.tapestry5.services.ClientInfrastructure;
 import org.apache.tapestry5.services.Environment;
 import org.apache.tapestry5.services.MarkupRenderer;
 import org.apache.tapestry5.services.MarkupRendererFilter;
+import org.apache.tapestry5.services.PartialMarkupRenderer;
+import org.apache.tapestry5.services.PartialMarkupRendererFilter;
 import org.got5.tapestry5.clientresources.ClientResourcesConstants;
 
 
@@ -98,6 +100,28 @@ public class ClientResourcesModule
 
                 environment.push(RenderSupport.class, interceptor);
                 renderer.renderMarkup(writer);
+            }
+        };
+        configuration.add("RenderSupportDecorator", renderSupportInterceptor, "after:RenderSupport", "before:ClientBehaviorSupport",
+                "before:InjectDefaultStyleheet", "before:Heartbeat");
+    }
+    
+    
+    public void contributePartialMarkupRenderer(OrderedConfiguration<PartialMarkupRendererFilter> configuration,
+            final @Symbol(ClientResourcesConstants.DISABLED_FORM_AUTOFOCUS) boolean autofocusDisabled)
+    {
+        PartialMarkupRendererFilter renderSupportInterceptor = new PartialMarkupRendererFilter()
+        {
+            public void renderMarkup(MarkupWriter writer, JSONObject reply, PartialMarkupRenderer renderer)
+            {
+                // to decorate a MarkupRendererFilter, you just have to pop it just after it was
+                // created, then push a wrapped version of it
+                RenderSupport delegate = (RenderSupport) environment.pop(RenderSupport.class);
+                RenderSupport interceptor = new RenderSupportInterceptor(delegate, autofocusDisabled);
+
+                environment.push(RenderSupport.class, interceptor);
+                renderer.renderMarkup(writer, reply);
+                
             }
         };
         configuration.add("RenderSupportDecorator", renderSupportInterceptor, "after:RenderSupport", "before:ClientBehaviorSupport",
