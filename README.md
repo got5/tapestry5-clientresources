@@ -44,7 +44,7 @@ To use this plugin, add the following dependency in your `pom.xml`.
 
 ## More Informations & contacts
 
-* Twitter: http://twitter.com/robinkomiwes
+* Twitter: https://twitter.com/GangOfTapestry5
 
 
 ## License
